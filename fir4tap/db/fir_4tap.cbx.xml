@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="fir_4tap">
+		<CBX_INST_ENTRY INSTANCE_NAME="|fir_4tap|lpm_mult:Mult1|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_0jh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fir_4tap|lpm_mult:Mult2|multcore:mult_core|lpm_add_sub:adder" CBX_FILE_NAME="add_sub_88h.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fir_4tap|lpm_mult:Mult3|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_vih.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

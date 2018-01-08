@@ -1,0 +1,596 @@
+Analysis & Synthesis report for firzol
+Tue Apr 19 21:42:01 2016
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |firzol|state
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: Top-level Entity: |firzol
+ 15. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
+ 16. lpm_mult Parameter Settings by Entity Instance
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Apr 19 21:42:01 2016           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; firzol                                          ;
+; Top-level Entity Name              ; firzol                                          ;
+; Family                             ; Cyclone IV E                                    ;
+; Total logic elements               ; 1,507                                           ;
+;     Total combinational functions  ; 1,487                                           ;
+;     Dedicated logic registers      ; 184                                             ;
+; Total registers                    ; 184                                             ;
+; Total pins                         ; 44                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 1                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; firzol             ; firzol             ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Optimization Technique                                                     ; Area               ; Balanced           ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                      ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                  ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
+; float_pkg_c.vhdl                 ; yes             ; User VHDL File               ; G:/Rapid Prototyping/DSPFPGA/SemesterProject/FIRZOL/float_pkg_c.vhdl          ;         ;
+; fixed_pkg.vhd                    ; yes             ; User VHDL File               ; G:/Rapid Prototyping/DSPFPGA/SemesterProject/FIRZOL/fixed_pkg.vhd             ;         ;
+; fixed_float_types_c.vhdl         ; yes             ; User VHDL File               ; G:/Rapid Prototyping/DSPFPGA/SemesterProject/FIRZOL/fixed_float_types_c.vhdl  ;         ;
+; firzol.vhd                       ; yes             ; User VHDL File               ; G:/Rapid Prototyping/DSPFPGA/SemesterProject/FIRZOL/firzol.vhd                ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; g:/thedevelopmentkitquartusii/quartus/libraries/megafunctions/lpm_mult.tdf    ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; g:/thedevelopmentkitquartusii/quartus/libraries/megafunctions/aglobal130.inc  ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; g:/thedevelopmentkitquartusii/quartus/libraries/megafunctions/lpm_add_sub.inc ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; g:/thedevelopmentkitquartusii/quartus/libraries/megafunctions/multcore.inc    ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; g:/thedevelopmentkitquartusii/quartus/libraries/megafunctions/bypassff.inc    ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; g:/thedevelopmentkitquartusii/quartus/libraries/megafunctions/altshift.inc    ;         ;
+; db/mult_b3t.tdf                  ; yes             ; Auto-Generated Megafunction  ; G:/Rapid Prototyping/DSPFPGA/SemesterProject/FIRZOL/db/mult_b3t.tdf           ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 1,507 ;
+;                                             ;       ;
+; Total combinational functions               ; 1487  ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 860   ;
+;     -- 3 input functions                    ; 461   ;
+;     -- <=2 input functions                  ; 166   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 1469  ;
+;     -- arithmetic mode                      ; 18    ;
+;                                             ;       ;
+; Total registers                             ; 184   ;
+;     -- Dedicated logic registers            ; 184   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 44    ;
+; Embedded Multiplier 9-bit elements          ; 1     ;
+; Maximum fan-out node                        ; St~0  ;
+; Maximum fan-out                             ; 414   ;
+; Total fan-out                               ; 5949  ;
+; Average fan-out                             ; 3.38  ;
++---------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                         ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+--------------+
+; Compilation Hierarchy Node      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                            ; Library Name ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+--------------+
+; |firzol                         ; 1487 (1487)       ; 184 (184)    ; 0           ; 1            ; 1       ; 0         ; 44   ; 0            ; |firzol                                        ; work         ;
+;    |lpm_mult:Mult0|             ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |firzol|lpm_mult:Mult0                         ; work         ;
+;       |mult_b3t:auto_generated| ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |firzol|lpm_mult:Mult0|mult_b3t:auto_generated ; work         ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 1           ;
+; Simple Multipliers (18-bit)           ; 0           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 1           ;
+; Signed Embedded Multipliers           ; 1           ;
+; Unsigned Embedded Multipliers         ; 0           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------+
+; State Machine - |firzol|state                                    ;
++-------------+------------+-----------+-------------+-------------+
+; Name        ; state.done ; state.mac ; state.trans ; state.start ;
++-------------+------------+-----------+-------------+-------------+
+; state.start ; 0          ; 0         ; 0           ; 0           ;
+; state.trans ; 0          ; 0         ; 1           ; 1           ;
+; state.mac   ; 0          ; 1         ; 0           ; 1           ;
+; state.done  ; 1          ; 0         ; 0           ; 1           ;
++-------------+------------+-----------+-------------+-------------+
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; \St:L_current[3..9,11..31]             ; Merged with \St:L_current[10]          ;
+; \St:L_current[10]                      ; Stuck at GND due to stuck port data_in ;
+; \St:d[19..31]                          ; Lost fanout                            ;
+; Total Number of Removed Registers = 42 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                  ;
++---------------+--------------------+-----------------------------------------------------------------------------------------+
+; Register name ; Reason for Removal ; Registers Removed due to This Register                                                  ;
++---------------+--------------------+-----------------------------------------------------------------------------------------+
+; \St:d[31]     ; Lost Fanouts       ; \St:d[30], \St:d[29], \St:d[28], \St:d[27], \St:d[26], \St:d[25], \St:d[24], \St:d[23], ;
+;               ;                    ; \St:d[22], \St:d[21], \St:d[20], \St:d[19]                                              ;
++---------------+--------------------+-----------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 184   ;
+; Number of registers using Synchronous Clear  ; 19    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 146   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 180   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 5:1                ; 32 bits   ; 96 LEs        ; 0 LEs                ; 96 LEs                 ; Yes        ; |firzol|\St:d[19]          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |firzol|\St:L_current[10]  ;
+; 6:1                ; 9 bits    ; 36 LEs        ; 0 LEs                ; 36 LEs                 ; Yes        ; |firzol|\St:x_ar[0][3]     ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 0 LEs                ; 9 LEs                  ; Yes        ; |firzol|\St:L_current[2]   ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 4 LEs                ; 16 LEs                 ; Yes        ; |firzol|\St:x_count_ini[2] ;
+; 13:1               ; 9 bits    ; 72 LEs        ; 36 LEs               ; 36 LEs                 ; Yes        ; |firzol|\St:x_ar[3][6]     ;
+; 13:1               ; 9 bits    ; 72 LEs        ; 36 LEs               ; 36 LEs                 ; Yes        ; |firzol|\St:x_ar[4][6]     ;
+; 13:1               ; 9 bits    ; 72 LEs        ; 36 LEs               ; 36 LEs                 ; Yes        ; |firzol|\St:x_ar[1][0]     ;
+; 13:1               ; 9 bits    ; 72 LEs        ; 36 LEs               ; 36 LEs                 ; Yes        ; |firzol|\St:x_ar[5][4]     ;
+; 13:1               ; 9 bits    ; 72 LEs        ; 36 LEs               ; 36 LEs                 ; Yes        ; |firzol|\St:x_ar[2][2]     ;
+; 13:1               ; 9 bits    ; 72 LEs        ; 36 LEs               ; 36 LEs                 ; Yes        ; |firzol|\St:x_ar[6][1]     ;
+; 3:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; No         ; |firzol|St                 ;
+; 7:1                ; 18 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |firzol|Mux55              ;
+; 7:1                ; 9 bits    ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |firzol|Mux31              ;
+; 7:1                ; 9 bits    ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |firzol|Mux14              ;
+; 7:1                ; 9 bits    ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |firzol|Mux8               ;
+; 7:1                ; 9 bits    ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |firzol|Mux39              ;
+; 7:1                ; 9 bits    ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |firzol|Mux22              ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; No         ; |firzol|St                 ;
+; 8:1                ; 9 bits    ; 45 LEs        ; 45 LEs               ; 0 LEs                  ; No         ; |firzol|Mux49              ;
+; 5:1                ; 18 bits   ; 54 LEs        ; 18 LEs               ; 36 LEs                 ; No         ; |firzol|St                 ;
+; 6:1                ; 18 bits   ; 72 LEs        ; 18 LEs               ; 54 LEs                 ; No         ; |firzol|St                 ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |firzol|Selector101        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |firzol ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; W1             ; 9     ; Signed Integer                                ;
+; W2             ; 18    ; Signed Integer                                ;
+; W3             ; 19    ; Signed Integer                                ;
+; L              ; 7     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 9            ; Untyped             ;
+; LPM_WIDTHB                                     ; 9            ; Untyped             ;
+; LPM_WIDTHP                                     ; 18           ; Untyped             ;
+; LPM_WIDTHR                                     ; 18           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_b3t     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance         ;
++---------------------------------------+----------------+
+; Name                                  ; Value          ;
++---------------------------------------+----------------+
+; Number of entity instances            ; 1              ;
+; Entity Instance                       ; lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 9              ;
+;     -- LPM_WIDTHB                     ; 9              ;
+;     -- LPM_WIDTHP                     ; 18             ;
+;     -- LPM_REPRESENTATION             ; SIGNED         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
++---------------------------------------+----------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:05     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Tue Apr 19 21:41:44 2016
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off firzol -c firzol
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 0 entities, in source file float_pkg_c.vhdl
+    Info (12022): Found design unit 1: float_pkg
+    Info (12022): Found design unit 2: float_pkg-body
+Info (12021): Found 2 design units, including 0 entities, in source file fixed_pkg.vhd
+    Info (12022): Found design unit 1: fixed_pkg
+    Info (12022): Found design unit 2: fixed_pkg-body
+Info (12021): Found 1 design units, including 0 entities, in source file fixed_float_types_c.vhdl
+    Info (12022): Found design unit 1: fixed_float_types
+Info (12021): Found 3 design units, including 1 entities, in source file firzol.vhd
+    Info (12022): Found design unit 1: n_bit_int
+    Info (12022): Found design unit 2: firzol-fpga
+    Info (12023): Found entity 1: firzol
+Info (12127): Elaborating entity "firzol" for the top level hierarchy
+Warning (10445): VHDL Subtype or Type Declaration warning at fixed_pkg.vhd(1470): subtype or type has null range
+Warning (10445): VHDL Subtype or Type Declaration warning at fixed_pkg.vhd(1471): subtype or type has null range
+Warning (10445): VHDL Subtype or Type Declaration warning at fixed_pkg.vhd(1472): subtype or type has null range
+Warning (10445): VHDL Subtype or Type Declaration warning at float_pkg_c.vhdl(1021): subtype or type has null range
+Warning (10445): VHDL Subtype or Type Declaration warning at float_pkg_c.vhdl(1022): subtype or type has null range
+Warning (10036): Verilog HDL or VHDL warning at firzol.vhd(96): object "d_out" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at firzol.vhd(98): object "x_ar_out" assigned a value but never read
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0"
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0"
+Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "9"
+    Info (12134): Parameter "LPM_WIDTHB" = "9"
+    Info (12134): Parameter "LPM_WIDTHP" = "18"
+    Info (12134): Parameter "LPM_WIDTHR" = "18"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_b3t.tdf
+    Info (12023): Found entity 1: mult_b3t
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "\St:L_current[0]" is converted into an equivalent circuit using register "\St:L_current[0]~_emulated" and latch "\St:L_current[0]~1"
+    Warning (13310): Register "\St:L_current[1]" is converted into an equivalent circuit using register "\St:L_current[1]~_emulated" and latch "\St:L_current[1]~1"
+    Warning (13310): Register "\St:L_current[2]" is converted into an equivalent circuit using register "\St:L_current[2]~_emulated" and latch "\St:L_current[2]~1"
+    Warning (13310): Register "c_ar[1][0]" is converted into an equivalent circuit using register "c_ar[1][0]~_emulated" and latch "c_ar[1][0]~1"
+    Warning (13310): Register "c_ar[2][0]" is converted into an equivalent circuit using register "c_ar[2][0]~_emulated" and latch "c_ar[2][0]~5"
+    Warning (13310): Register "c_ar[0][0]" is converted into an equivalent circuit using register "c_ar[0][0]~_emulated" and latch "c_ar[0][0]~9"
+    Warning (13310): Register "c_ar[3][0]" is converted into an equivalent circuit using register "c_ar[3][0]~_emulated" and latch "c_ar[3][0]~13"
+    Warning (13310): Register "c_ar[5][0]" is converted into an equivalent circuit using register "c_ar[5][0]~_emulated" and latch "c_ar[5][0]~17"
+    Warning (13310): Register "c_ar[4][0]" is converted into an equivalent circuit using register "c_ar[4][0]~_emulated" and latch "c_ar[4][0]~21"
+    Warning (13310): Register "c_ar[6][0]" is converted into an equivalent circuit using register "c_ar[6][0]~_emulated" and latch "c_ar[6][0]~25"
+    Warning (13310): Register "c_ar[5][1]" is converted into an equivalent circuit using register "c_ar[5][1]~_emulated" and latch "c_ar[5][1]~29"
+    Warning (13310): Register "c_ar[2][1]" is converted into an equivalent circuit using register "c_ar[2][1]~_emulated" and latch "c_ar[2][1]~33"
+    Warning (13310): Register "c_ar[1][1]" is converted into an equivalent circuit using register "c_ar[1][1]~_emulated" and latch "c_ar[1][1]~37"
+    Warning (13310): Register "c_ar[0][1]" is converted into an equivalent circuit using register "c_ar[0][1]~_emulated" and latch "c_ar[0][1]~41"
+    Warning (13310): Register "c_ar[3][1]" is converted into an equivalent circuit using register "c_ar[3][1]~_emulated" and latch "c_ar[3][1]~45"
+    Warning (13310): Register "c_ar[4][1]" is converted into an equivalent circuit using register "c_ar[4][1]~_emulated" and latch "c_ar[4][1]~49"
+    Warning (13310): Register "c_ar[6][1]" is converted into an equivalent circuit using register "c_ar[6][1]~_emulated" and latch "c_ar[6][1]~53"
+    Warning (13310): Register "c_ar[1][2]" is converted into an equivalent circuit using register "c_ar[1][2]~_emulated" and latch "c_ar[1][2]~57"
+    Warning (13310): Register "c_ar[2][2]" is converted into an equivalent circuit using register "c_ar[2][2]~_emulated" and latch "c_ar[2][2]~61"
+    Warning (13310): Register "c_ar[0][2]" is converted into an equivalent circuit using register "c_ar[0][2]~_emulated" and latch "c_ar[0][2]~65"
+    Warning (13310): Register "c_ar[3][2]" is converted into an equivalent circuit using register "c_ar[3][2]~_emulated" and latch "c_ar[3][2]~69"
+    Warning (13310): Register "c_ar[5][2]" is converted into an equivalent circuit using register "c_ar[5][2]~_emulated" and latch "c_ar[5][2]~73"
+    Warning (13310): Register "c_ar[4][2]" is converted into an equivalent circuit using register "c_ar[4][2]~_emulated" and latch "c_ar[4][2]~77"
+    Warning (13310): Register "c_ar[6][2]" is converted into an equivalent circuit using register "c_ar[6][2]~_emulated" and latch "c_ar[6][2]~81"
+    Warning (13310): Register "c_ar[5][3]" is converted into an equivalent circuit using register "c_ar[5][3]~_emulated" and latch "c_ar[5][3]~85"
+    Warning (13310): Register "c_ar[2][3]" is converted into an equivalent circuit using register "c_ar[2][3]~_emulated" and latch "c_ar[2][3]~89"
+    Warning (13310): Register "c_ar[1][3]" is converted into an equivalent circuit using register "c_ar[1][3]~_emulated" and latch "c_ar[1][3]~93"
+    Warning (13310): Register "c_ar[0][3]" is converted into an equivalent circuit using register "c_ar[0][3]~_emulated" and latch "c_ar[0][3]~97"
+    Warning (13310): Register "c_ar[3][3]" is converted into an equivalent circuit using register "c_ar[3][3]~_emulated" and latch "c_ar[3][3]~101"
+    Warning (13310): Register "c_ar[4][3]" is converted into an equivalent circuit using register "c_ar[4][3]~_emulated" and latch "c_ar[4][3]~105"
+    Warning (13310): Register "c_ar[6][3]" is converted into an equivalent circuit using register "c_ar[6][3]~_emulated" and latch "c_ar[6][3]~109"
+    Warning (13310): Register "c_ar[1][4]" is converted into an equivalent circuit using register "c_ar[1][4]~_emulated" and latch "c_ar[1][4]~113"
+    Warning (13310): Register "c_ar[2][4]" is converted into an equivalent circuit using register "c_ar[2][4]~_emulated" and latch "c_ar[2][4]~117"
+    Warning (13310): Register "c_ar[0][4]" is converted into an equivalent circuit using register "c_ar[0][4]~_emulated" and latch "c_ar[0][4]~121"
+    Warning (13310): Register "c_ar[3][4]" is converted into an equivalent circuit using register "c_ar[3][4]~_emulated" and latch "c_ar[3][4]~125"
+    Warning (13310): Register "c_ar[5][4]" is converted into an equivalent circuit using register "c_ar[5][4]~_emulated" and latch "c_ar[5][4]~129"
+    Warning (13310): Register "c_ar[4][4]" is converted into an equivalent circuit using register "c_ar[4][4]~_emulated" and latch "c_ar[4][4]~133"
+    Warning (13310): Register "c_ar[6][4]" is converted into an equivalent circuit using register "c_ar[6][4]~_emulated" and latch "c_ar[6][4]~137"
+    Warning (13310): Register "c_ar[5][5]" is converted into an equivalent circuit using register "c_ar[5][5]~_emulated" and latch "c_ar[5][5]~141"
+    Warning (13310): Register "c_ar[2][5]" is converted into an equivalent circuit using register "c_ar[2][5]~_emulated" and latch "c_ar[2][5]~145"
+    Warning (13310): Register "c_ar[1][5]" is converted into an equivalent circuit using register "c_ar[1][5]~_emulated" and latch "c_ar[1][5]~149"
+    Warning (13310): Register "c_ar[0][5]" is converted into an equivalent circuit using register "c_ar[0][5]~_emulated" and latch "c_ar[0][5]~153"
+    Warning (13310): Register "c_ar[3][5]" is converted into an equivalent circuit using register "c_ar[3][5]~_emulated" and latch "c_ar[3][5]~157"
+    Warning (13310): Register "c_ar[4][5]" is converted into an equivalent circuit using register "c_ar[4][5]~_emulated" and latch "c_ar[4][5]~161"
+    Warning (13310): Register "c_ar[6][5]" is converted into an equivalent circuit using register "c_ar[6][5]~_emulated" and latch "c_ar[6][5]~165"
+    Warning (13310): Register "c_ar[1][6]" is converted into an equivalent circuit using register "c_ar[1][6]~_emulated" and latch "c_ar[1][6]~169"
+    Warning (13310): Register "c_ar[2][6]" is converted into an equivalent circuit using register "c_ar[2][6]~_emulated" and latch "c_ar[2][6]~173"
+    Warning (13310): Register "c_ar[0][6]" is converted into an equivalent circuit using register "c_ar[0][6]~_emulated" and latch "c_ar[0][6]~177"
+    Warning (13310): Register "c_ar[3][6]" is converted into an equivalent circuit using register "c_ar[3][6]~_emulated" and latch "c_ar[3][6]~181"
+    Warning (13310): Register "c_ar[5][6]" is converted into an equivalent circuit using register "c_ar[5][6]~_emulated" and latch "c_ar[5][6]~185"
+    Warning (13310): Register "c_ar[4][6]" is converted into an equivalent circuit using register "c_ar[4][6]~_emulated" and latch "c_ar[4][6]~189"
+    Warning (13310): Register "c_ar[6][6]" is converted into an equivalent circuit using register "c_ar[6][6]~_emulated" and latch "c_ar[6][6]~193"
+    Warning (13310): Register "c_ar[5][7]" is converted into an equivalent circuit using register "c_ar[5][7]~_emulated" and latch "c_ar[5][7]~197"
+    Warning (13310): Register "c_ar[2][7]" is converted into an equivalent circuit using register "c_ar[2][7]~_emulated" and latch "c_ar[2][7]~201"
+    Warning (13310): Register "c_ar[1][7]" is converted into an equivalent circuit using register "c_ar[1][7]~_emulated" and latch "c_ar[1][7]~205"
+    Warning (13310): Register "c_ar[0][7]" is converted into an equivalent circuit using register "c_ar[0][7]~_emulated" and latch "c_ar[0][7]~209"
+    Warning (13310): Register "c_ar[3][7]" is converted into an equivalent circuit using register "c_ar[3][7]~_emulated" and latch "c_ar[3][7]~213"
+    Warning (13310): Register "c_ar[4][7]" is converted into an equivalent circuit using register "c_ar[4][7]~_emulated" and latch "c_ar[4][7]~217"
+    Warning (13310): Register "c_ar[6][7]" is converted into an equivalent circuit using register "c_ar[6][7]~_emulated" and latch "c_ar[6][7]~221"
+    Warning (13310): Register "c_ar[1][8]" is converted into an equivalent circuit using register "c_ar[1][8]~_emulated" and latch "c_ar[1][8]~225"
+    Warning (13310): Register "c_ar[2][8]" is converted into an equivalent circuit using register "c_ar[2][8]~_emulated" and latch "c_ar[2][8]~229"
+    Warning (13310): Register "c_ar[0][8]" is converted into an equivalent circuit using register "c_ar[0][8]~_emulated" and latch "c_ar[0][8]~233"
+    Warning (13310): Register "c_ar[3][8]" is converted into an equivalent circuit using register "c_ar[3][8]~_emulated" and latch "c_ar[3][8]~237"
+    Warning (13310): Register "c_ar[5][8]" is converted into an equivalent circuit using register "c_ar[5][8]~_emulated" and latch "c_ar[5][8]~241"
+    Warning (13310): Register "c_ar[4][8]" is converted into an equivalent circuit using register "c_ar[4][8]~_emulated" and latch "c_ar[4][8]~245"
+    Warning (13310): Register "c_ar[6][8]" is converted into an equivalent circuit using register "c_ar[6][8]~_emulated" and latch "c_ar[6][8]~249"
+    Warning (13310): Register "\St:x_ar[5][0]" is converted into an equivalent circuit using register "\St:x_ar[5][0]~_emulated" and latch "\St:x_ar[5][0]~1"
+    Warning (13310): Register "\St:x_ar[2][0]" is converted into an equivalent circuit using register "\St:x_ar[2][0]~_emulated" and latch "\St:x_ar[2][0]~1"
+    Warning (13310): Register "\St:x_ar[1][0]" is converted into an equivalent circuit using register "\St:x_ar[1][0]~_emulated" and latch "\St:x_ar[1][0]~1"
+    Warning (13310): Register "\St:x_ar[0][0]" is converted into an equivalent circuit using register "\St:x_ar[0][0]~_emulated" and latch "\St:x_ar[0][0]~1"
+    Warning (13310): Register "\St:x_ar[3][0]" is converted into an equivalent circuit using register "\St:x_ar[3][0]~_emulated" and latch "\St:x_ar[3][0]~1"
+    Warning (13310): Register "\St:x_ar[4][0]" is converted into an equivalent circuit using register "\St:x_ar[4][0]~_emulated" and latch "\St:x_ar[4][0]~1"
+    Warning (13310): Register "\St:x_ar[6][0]" is converted into an equivalent circuit using register "\St:x_ar[6][0]~_emulated" and latch "\St:x_ar[6][0]~1"
+    Warning (13310): Register "\St:x_ar[1][1]" is converted into an equivalent circuit using register "\St:x_ar[1][1]~_emulated" and latch "\St:x_ar[1][1]~1"
+    Warning (13310): Register "\St:x_ar[2][1]" is converted into an equivalent circuit using register "\St:x_ar[2][1]~_emulated" and latch "\St:x_ar[2][1]~1"
+    Warning (13310): Register "\St:x_ar[0][1]" is converted into an equivalent circuit using register "\St:x_ar[0][1]~_emulated" and latch "\St:x_ar[0][1]~1"
+    Warning (13310): Register "\St:x_ar[3][1]" is converted into an equivalent circuit using register "\St:x_ar[3][1]~_emulated" and latch "\St:x_ar[3][1]~1"
+    Warning (13310): Register "\St:x_ar[5][1]" is converted into an equivalent circuit using register "\St:x_ar[5][1]~_emulated" and latch "\St:x_ar[5][1]~1"
+    Warning (13310): Register "\St:x_ar[4][1]" is converted into an equivalent circuit using register "\St:x_ar[4][1]~_emulated" and latch "\St:x_ar[4][1]~1"
+    Warning (13310): Register "\St:x_ar[6][1]" is converted into an equivalent circuit using register "\St:x_ar[6][1]~_emulated" and latch "\St:x_ar[6][1]~1"
+    Warning (13310): Register "\St:x_ar[5][2]" is converted into an equivalent circuit using register "\St:x_ar[5][2]~_emulated" and latch "\St:x_ar[5][2]~1"
+    Warning (13310): Register "\St:x_ar[2][2]" is converted into an equivalent circuit using register "\St:x_ar[2][2]~_emulated" and latch "\St:x_ar[2][2]~1"
+    Warning (13310): Register "\St:x_ar[1][2]" is converted into an equivalent circuit using register "\St:x_ar[1][2]~_emulated" and latch "\St:x_ar[1][2]~1"
+    Warning (13310): Register "\St:x_ar[0][2]" is converted into an equivalent circuit using register "\St:x_ar[0][2]~_emulated" and latch "\St:x_ar[0][2]~1"
+    Warning (13310): Register "\St:x_ar[3][2]" is converted into an equivalent circuit using register "\St:x_ar[3][2]~_emulated" and latch "\St:x_ar[3][2]~1"
+    Warning (13310): Register "\St:x_ar[4][2]" is converted into an equivalent circuit using register "\St:x_ar[4][2]~_emulated" and latch "\St:x_ar[4][2]~1"
+    Warning (13310): Register "\St:x_ar[6][2]" is converted into an equivalent circuit using register "\St:x_ar[6][2]~_emulated" and latch "\St:x_ar[6][2]~1"
+    Warning (13310): Register "\St:x_ar[1][3]" is converted into an equivalent circuit using register "\St:x_ar[1][3]~_emulated" and latch "\St:x_ar[1][3]~1"
+    Warning (13310): Register "\St:x_ar[2][3]" is converted into an equivalent circuit using register "\St:x_ar[2][3]~_emulated" and latch "\St:x_ar[2][3]~1"
+    Warning (13310): Register "\St:x_ar[0][3]" is converted into an equivalent circuit using register "\St:x_ar[0][3]~_emulated" and latch "\St:x_ar[0][3]~1"
+    Warning (13310): Register "\St:x_ar[3][3]" is converted into an equivalent circuit using register "\St:x_ar[3][3]~_emulated" and latch "\St:x_ar[3][3]~1"
+    Warning (13310): Register "\St:x_ar[5][3]" is converted into an equivalent circuit using register "\St:x_ar[5][3]~_emulated" and latch "\St:x_ar[5][3]~1"
+    Warning (13310): Register "\St:x_ar[4][3]" is converted into an equivalent circuit using register "\St:x_ar[4][3]~_emulated" and latch "\St:x_ar[4][3]~1"
+    Warning (13310): Register "\St:x_ar[6][3]" is converted into an equivalent circuit using register "\St:x_ar[6][3]~_emulated" and latch "\St:x_ar[6][3]~1"
+    Warning (13310): Register "\St:x_ar[5][4]" is converted into an equivalent circuit using register "\St:x_ar[5][4]~_emulated" and latch "\St:x_ar[5][4]~1"
+    Warning (13310): Register "\St:x_ar[2][4]" is converted into an equivalent circuit using register "\St:x_ar[2][4]~_emulated" and latch "\St:x_ar[2][4]~1"
+    Warning (13310): Register "\St:x_ar[1][4]" is converted into an equivalent circuit using register "\St:x_ar[1][4]~_emulated" and latch "\St:x_ar[1][4]~1"
+    Warning (13310): Register "\St:x_ar[0][4]" is converted into an equivalent circuit using register "\St:x_ar[0][4]~_emulated" and latch "\St:x_ar[0][4]~1"
+    Warning (13310): Register "\St:x_ar[3][4]" is converted into an equivalent circuit using register "\St:x_ar[3][4]~_emulated" and latch "\St:x_ar[3][4]~1"
+    Warning (13310): Register "\St:x_ar[4][4]" is converted into an equivalent circuit using register "\St:x_ar[4][4]~_emulated" and latch "\St:x_ar[4][4]~1"
+    Warning (13310): Register "\St:x_ar[6][4]" is converted into an equivalent circuit using register "\St:x_ar[6][4]~_emulated" and latch "\St:x_ar[6][4]~1"
+    Warning (13310): Register "\St:x_ar[1][5]" is converted into an equivalent circuit using register "\St:x_ar[1][5]~_emulated" and latch "\St:x_ar[1][5]~1"
+    Warning (13310): Register "\St:x_ar[2][5]" is converted into an equivalent circuit using register "\St:x_ar[2][5]~_emulated" and latch "\St:x_ar[2][5]~1"
+    Warning (13310): Register "\St:x_ar[0][5]" is converted into an equivalent circuit using register "\St:x_ar[0][5]~_emulated" and latch "\St:x_ar[0][5]~1"
+    Warning (13310): Register "\St:x_ar[3][5]" is converted into an equivalent circuit using register "\St:x_ar[3][5]~_emulated" and latch "\St:x_ar[3][5]~1"
+    Warning (13310): Register "\St:x_ar[5][5]" is converted into an equivalent circuit using register "\St:x_ar[5][5]~_emulated" and latch "\St:x_ar[5][5]~1"
+    Warning (13310): Register "\St:x_ar[4][5]" is converted into an equivalent circuit using register "\St:x_ar[4][5]~_emulated" and latch "\St:x_ar[4][5]~1"
+    Warning (13310): Register "\St:x_ar[6][5]" is converted into an equivalent circuit using register "\St:x_ar[6][5]~_emulated" and latch "\St:x_ar[6][5]~1"
+    Warning (13310): Register "\St:x_ar[5][6]" is converted into an equivalent circuit using register "\St:x_ar[5][6]~_emulated" and latch "\St:x_ar[5][6]~1"
+    Warning (13310): Register "\St:x_ar[2][6]" is converted into an equivalent circuit using register "\St:x_ar[2][6]~_emulated" and latch "\St:x_ar[2][6]~1"
+    Warning (13310): Register "\St:x_ar[1][6]" is converted into an equivalent circuit using register "\St:x_ar[1][6]~_emulated" and latch "\St:x_ar[1][6]~1"
+    Warning (13310): Register "\St:x_ar[0][6]" is converted into an equivalent circuit using register "\St:x_ar[0][6]~_emulated" and latch "\St:x_ar[0][6]~1"
+    Warning (13310): Register "\St:x_ar[3][6]" is converted into an equivalent circuit using register "\St:x_ar[3][6]~_emulated" and latch "\St:x_ar[3][6]~1"
+    Warning (13310): Register "\St:x_ar[4][6]" is converted into an equivalent circuit using register "\St:x_ar[4][6]~_emulated" and latch "\St:x_ar[4][6]~1"
+    Warning (13310): Register "\St:x_ar[6][6]" is converted into an equivalent circuit using register "\St:x_ar[6][6]~_emulated" and latch "\St:x_ar[6][6]~1"
+    Warning (13310): Register "\St:x_ar[2][7]" is converted into an equivalent circuit using register "\St:x_ar[2][7]~_emulated" and latch "\St:x_ar[2][7]~1"
+    Warning (13310): Register "\St:x_ar[1][7]" is converted into an equivalent circuit using register "\St:x_ar[1][7]~_emulated" and latch "\St:x_ar[1][7]~1"
+    Warning (13310): Register "\St:x_ar[0][7]" is converted into an equivalent circuit using register "\St:x_ar[0][7]~_emulated" and latch "\St:x_ar[0][7]~1"
+    Warning (13310): Register "\St:x_ar[3][7]" is converted into an equivalent circuit using register "\St:x_ar[3][7]~_emulated" and latch "\St:x_ar[3][7]~1"
+    Warning (13310): Register "\St:x_ar[5][7]" is converted into an equivalent circuit using register "\St:x_ar[5][7]~_emulated" and latch "\St:x_ar[5][7]~1"
+    Warning (13310): Register "\St:x_ar[4][7]" is converted into an equivalent circuit using register "\St:x_ar[4][7]~_emulated" and latch "\St:x_ar[4][7]~1"
+    Warning (13310): Register "\St:x_ar[6][7]" is converted into an equivalent circuit using register "\St:x_ar[6][7]~_emulated" and latch "\St:x_ar[6][7]~1"
+    Warning (13310): Register "\St:x_ar[5][8]" is converted into an equivalent circuit using register "\St:x_ar[5][8]~_emulated" and latch "\St:x_ar[5][8]~1"
+    Warning (13310): Register "\St:x_ar[2][8]" is converted into an equivalent circuit using register "\St:x_ar[2][8]~_emulated" and latch "\St:x_ar[2][8]~1"
+    Warning (13310): Register "\St:x_ar[1][8]" is converted into an equivalent circuit using register "\St:x_ar[1][8]~_emulated" and latch "\St:x_ar[1][8]~1"
+    Warning (13310): Register "\St:x_ar[0][8]" is converted into an equivalent circuit using register "\St:x_ar[0][8]~_emulated" and latch "\St:x_ar[0][8]~1"
+    Warning (13310): Register "\St:x_ar[3][8]" is converted into an equivalent circuit using register "\St:x_ar[3][8]~_emulated" and latch "\St:x_ar[3][8]~1"
+    Warning (13310): Register "\St:x_ar[4][8]" is converted into an equivalent circuit using register "\St:x_ar[4][8]~_emulated" and latch "\St:x_ar[4][8]~1"
+    Warning (13310): Register "\St:x_ar[6][8]" is converted into an equivalent circuit using register "\St:x_ar[6][8]~_emulated" and latch "\St:x_ar[6][8]~1"
+    Warning (13310): Register "\St:x_count_ini[1]" is converted into an equivalent circuit using register "\St:x_count_ini[1]~_emulated" and latch "\St:x_count_ini[1]~1"
+    Warning (13310): Register "\St:x_count_ini[0]" is converted into an equivalent circuit using register "\St:x_count_ini[0]~_emulated" and latch "\St:x_count_ini[0]~1"
+    Warning (13310): Register "\St:x_count_ini[2]" is converted into an equivalent circuit using register "\St:x_count_ini[2]~_emulated" and latch "\St:x_count_ini[2]~1"
+    Warning (13310): Register "\St:x_count_ini[3]" is converted into an equivalent circuit using register "\St:x_count_ini[3]~_emulated" and latch "\St:x_count_ini[3]~1"
+Info (17049): 13 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1572 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 25 input pins
+    Info (21059): Implemented 19 output pins
+    Info (21061): Implemented 1527 logic cells
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 143 warnings
+    Info: Peak virtual memory: 557 megabytes
+    Info: Processing ended: Tue Apr 19 21:42:01 2016
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:07
+
+

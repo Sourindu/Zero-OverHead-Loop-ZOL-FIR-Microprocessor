@@ -1,0 +1,9 @@
+
+State Machine - |fft256|s
+Name s.done s.reverse s.update s.calc s.load s.start 
+s.start 0 0 0 0 0 0 
+s.load 0 0 0 0 1 1 
+s.calc 0 0 0 1 0 1 
+s.update 0 0 1 0 0 1 
+s.reverse 0 1 0 0 0 1 
+s.done 1 0 0 0 0 1 
